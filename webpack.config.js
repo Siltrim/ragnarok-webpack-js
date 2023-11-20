@@ -21,9 +21,6 @@ module.exports = {
     port: 9000,
     hot: true,
   },
-  stats: {
-    children: true,
-  },
   module: {
     rules: [
       {
