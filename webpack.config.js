@@ -11,7 +11,7 @@ module.exports = {
     clean: true,
     filename: '[name].bundle.js',
     assetModuleFilename: 'assets/images/[name][ext]',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
   },
   mode: 'development',
   devServer: {
