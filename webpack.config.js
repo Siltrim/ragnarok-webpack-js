@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const path = require('path');
 
 module.exports = {
@@ -8,6 +10,7 @@ module.exports = {
   output: {
     clean: true,
     filename: '[name].bundle.js',
+    assetModuleFilename: 'assets/images/[name][ext]',
     path: path.resolve(__dirname, 'dist'),
   },
   mode: 'development',
@@ -16,6 +19,9 @@ module.exports = {
     compress: true,
     port: 9000,
     hot: true,
+  },
+  stats: {
+    children: true,
   },
   module: {
     rules: [
@@ -33,6 +39,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'God Of War',
       template: 'src/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/assets/images', to: 'assets/images' },
+        { from: 'src/assets/images/favicon/', to: 'assets/images/favicon/' },
+      ],
     }),
   ],
 };
