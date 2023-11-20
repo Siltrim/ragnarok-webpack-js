@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const path = require('path');
 
@@ -46,5 +47,6 @@ module.exports = {
         { from: 'src/assets/images/favicon/', to: 'assets/images/favicon/' },
       ],
     }),
+    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
   ],
 };
